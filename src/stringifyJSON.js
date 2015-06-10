@@ -5,25 +5,17 @@
 
 // INPUT: collection
 // OUTPUT: JSON string
+// process:
+// take in collection
+// if values, return stringified values
+// if nested collection, repeat fcn with new collection
+// ultimately: return all stringified values
 var stringifyJSON = function(obj) {
+  // 7 data types: 6 primitives + object
+  // string
+  // boolean
+  // number
+  // null
+  // undefined
+  // object
 };
-
-// Description
-// JSON.stringify() converts a value to JSON notation representing it:
-
-// 1. Properties of non-array objects are not guaranteed to be stringified in
-// any particular order. Do not rely on ordering of properties within the same
-// object within the stringification.
-
-// 2. Boolean, Number, and String objects are converted to the corresponding
-// primitive values during stringification, in accord with the traditional
-// conversion semantics.
-
-// 3. If undefined, a function, or a symbol is encountered during conversion it
-// is either omitted (when it is found in an object) or censored to null
-// (when it is found in an array).
-
-// 4. All symbol-keyed properties will be completely ignored, even when using
-// the replacer function.
-
-// 5. Non-enumerable properties will be ignored
