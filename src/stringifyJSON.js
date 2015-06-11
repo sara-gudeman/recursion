@@ -12,10 +12,20 @@
 // ultimately: return all stringified values
 var stringifyJSON = function(obj) {
   // 7 data types: 6 primitives + object
-  // string
-  // boolean
-  // number
+    // string
+  if (typeof obj === "string") {
+    return "'" + obj + "'";
+  }
+  // boolean or number
+  if (typeof obj === "boolean" || typeof obj === "number") {
+    return obj.toString();
+  }
+  // object
   // null
   // undefined
-  // object
 };
+
+console.log(stringifyJSON("hello"));
+console.log(stringifyJSON({a: 1, b: 2}));
+console.log(stringifyJSON(2));
+console.log(stringifyJSON(true));
