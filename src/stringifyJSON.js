@@ -39,8 +39,13 @@ var stringifyJSON = function(obj) {
   if (Array.isArray(obj)) {
     var strArr = [];
     for (var i = 0; i < obj.length; i++) {
-      var strVal = stringifyJSON(obj[i]);
-      strArr.push(strVal);
+      // TO DO: generalize to larger fcn
+      if (obj[i] === undefined) {
+        strArr.push("null");
+      } else {
+        var strVal = stringifyJSON(obj[i]);
+        strArr.push(strVal);
+      }
     }
     return "[" + strArr.join() + "]";
   }
@@ -62,7 +67,7 @@ var stringifyJSON = function(obj) {
 
 console.log(stringifyJSON("hello"));
 console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
-console.log(stringifyJSON([1, 2, 3, "hello"]));
+console.log(stringifyJSON([1, 2, 3, "hello", undefined]));
 console.log(stringifyJSON({}));
 console.log(stringifyJSON(2));
 console.log(stringifyJSON(true));
