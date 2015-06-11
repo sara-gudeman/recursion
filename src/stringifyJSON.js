@@ -21,21 +21,31 @@ var stringifyJSON = function(obj) {
     return obj.toString();
   }
   // object
+  if (typeof obj === "object") {
+    var objArr = [];
+    for (var key in obj) {
+      var keyStr = stringifyJSON(key);
+      var valStr = stringifyJSON(obj[key]);
+      objArr.push(keyStr + ":" + valStr);
+    }
+    objArr.join();
+    return "{" + objArr + "}";
+  }
   // null
   // undefined
 };
 
-var testObj = {a: 1, b: 2, c: "hello"};
-var objArr = [];
-for (var key in testObj) {
-  var keyStr = stringifyJSON(key);
-  var valStr = stringifyJSON(testObj[key]);
-  objArr.push(keyStr + ":" + valStr);
-  // console.log(objArr);
-};
-console.log("{" + objArr.join() + "}");
+// var testObj = {a: 1, b: 2, c: "hello"};
+// var objArr = [];
+// for (var key in testObj) {
+//   var keyStr = stringifyJSON(key);
+//   var valStr = stringifyJSON(testObj[key]);
+//   objArr.push(keyStr + ":" + valStr);
+//   // console.log(objArr);
+// };
+// console.log("{" + objArr.join() + "}");
 
 console.log(stringifyJSON("hello"));
-// console.log(stringifyJSON({a: 1, b: 2}));
+console.log(stringifyJSON({a: 1, b: 2, c: "hello"}));
 console.log(stringifyJSON(2));
 console.log(stringifyJSON(true));
