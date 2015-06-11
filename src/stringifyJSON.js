@@ -60,15 +60,12 @@ var stringifyJSON = function(obj) {
   // undefined
 };
 
-console.log(stringifyJSON("hello"));
-console.log(stringifyJSON(new String("hello")));
-console.log(stringifyJSON([1, function() {return;}]));
-console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
-console.log(stringifyJSON([{a: 1, b: 2, c: "hello", d: undefined}]));
-console.log(stringifyJSON([1, 2, 3, "hello", undefined]));
-console.log(stringifyJSON({}));
-console.log(stringifyJSON(2));
-console.log(stringifyJSON(true));
-
-
-console.log(JSON.stringify(null));
+// console.log(stringifyJSON("hello"));
+// console.log(stringifyJSON(new String("hello")));
+// console.log(stringifyJSON([1, function() {return;}]));
+// console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
+// console.log(stringifyJSON([{a: 1, b: 2, c: "hello", d: undefined}]));
+// console.log(stringifyJSON([1, 2, 3, "hello", undefined]));
+// console.log(stringifyJSON({}));
+// console.log(stringifyJSON(2));
+// console.log(stringifyJSON(true));
