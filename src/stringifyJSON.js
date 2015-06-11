@@ -14,7 +14,7 @@ var stringifyJSON = function(obj) {
   // 7 data types: 6 primitives + object
   // string
   if (typeof obj === "string") {
-    return "'" + obj + "'";
+    return '"' + obj + '"';
   }
   // boolean or number
   if (typeof obj === "boolean" || typeof obj === "number") {
