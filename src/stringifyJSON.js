@@ -12,7 +12,7 @@
 // ultimately: return all stringified values
 var stringifyJSON = function(obj) {
   // 7 data types: 6 primitives + object
-    // string
+  // string
   if (typeof obj === "string") {
     return "'" + obj + "'";
   }
@@ -25,7 +25,17 @@ var stringifyJSON = function(obj) {
   // undefined
 };
 
+var testObj = {a: 1, b: 2, c: "hello"};
+var objArr = [];
+for (var key in testObj) {
+  var keyStr = stringifyJSON(key);
+  var valStr = stringifyJSON(testObj[key]);
+  objArr.push(keyStr + ":" + valStr);
+  // console.log(objArr);
+};
+console.log("{" + objArr.join() + "}");
+
 console.log(stringifyJSON("hello"));
-console.log(stringifyJSON({a: 1, b: 2}));
+// console.log(stringifyJSON({a: 1, b: 2}));
 console.log(stringifyJSON(2));
 console.log(stringifyJSON(true));
