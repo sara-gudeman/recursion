@@ -20,6 +20,9 @@ var stringifyJSON = function(obj) {
   if (typeof obj === "boolean" || typeof obj === "number") {
     return obj.toString();
   }
+  if (obj === null) {
+    return "null";
+  }
   // object
   if (typeof obj === "object" && Array.isArray(obj) === false) {
     var objArr = [];
