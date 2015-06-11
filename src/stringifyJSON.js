@@ -24,6 +24,9 @@ var stringifyJSON = function(obj) {
   if (typeof obj === "object") {
     var objArr = [];
     for (var key in obj) {
+      if (obj[key] === undefined) {
+        continue;
+      }
       var keyStr = stringifyJSON(key);
       var valStr = stringifyJSON(obj[key]);
       objArr.push(keyStr + ":" + valStr);
@@ -46,6 +49,7 @@ var stringifyJSON = function(obj) {
 // console.log("{" + objArr.join() + "}");
 
 console.log(stringifyJSON("hello"));
-console.log(stringifyJSON({a: 1, b: 2, c: "hello"}));
+console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
+console.log(stringifyJSON({}));
 console.log(stringifyJSON(2));
 console.log(stringifyJSON(true));
