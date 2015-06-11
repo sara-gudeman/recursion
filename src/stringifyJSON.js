@@ -25,7 +25,7 @@ var stringifyJSON = function(obj) {
     var objArr = [];
     for (var key in obj) {
       // TO DO: generalize to larger fcn
-      if (obj[key] === undefined) {
+      if (obj[key] === undefined || typeof obj[key] === "symbol" || typeof obj[key] === "function") {
         continue;
       }
       var keyStr = stringifyJSON(key);
@@ -40,7 +40,7 @@ var stringifyJSON = function(obj) {
     var strArr = [];
     for (var i = 0; i < obj.length; i++) {
       // TO DO: generalize to larger fcn
-      if (obj[i] === undefined) {
+      if (obj[i] === undefined || typeof obj[i] === "symbol" || typeof obj[i] === "function") {
         strArr.push("null");
       } else {
         var strVal = stringifyJSON(obj[i]);
@@ -49,16 +49,19 @@ var stringifyJSON = function(obj) {
     }
     return "[" + strArr.join() + "]";
   }
-
   // TO DO: deal w/ null, undefined, fcn, and symbol values
   // null
   // undefined
 };
 
 console.log(stringifyJSON("hello"));
+console.log(stringifyJSON([1, function() {return;}]));
 console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
 console.log(stringifyJSON([{a: 1, b: 2, c: "hello", d: undefined}]));
 console.log(stringifyJSON([1, 2, 3, "hello", undefined]));
 console.log(stringifyJSON({}));
 console.log(stringifyJSON(2));
 console.log(stringifyJSON(true));
+
+
+console.log(JSON.stringify(null));
