@@ -23,6 +23,9 @@ var stringifyJSON = function(obj) {
   if (obj === null) {
     return "null";
   }
+  if (obj instanceof Number || obj instanceof String || obj instanceof Boolean) {
+    return '"' + obj.valueOf() + '"';
+  }
   // object
   if (typeof obj === "object" && Array.isArray(obj) === false) {
     var objArr = [];
@@ -58,6 +61,7 @@ var stringifyJSON = function(obj) {
 };
 
 console.log(stringifyJSON("hello"));
+console.log(stringifyJSON(new String("hello")));
 console.log(stringifyJSON([1, function() {return;}]));
 console.log(stringifyJSON({a: 1, b: 2, c: "hello", d: undefined}));
 console.log(stringifyJSON([{a: 1, b: 2, c: "hello", d: undefined}]));
