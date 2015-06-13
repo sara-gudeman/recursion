@@ -8,7 +8,15 @@
 // from bookstrap:
 // You should use document.body, element.childNodes, and element.classList
 var getElementsByClassName = function(className){
-  // your code here
+  var nodeArr = [];
+  var searchParent = function(className, parent) {
+    var children = parent.childNodes;
+    for (var i = 0; i < children.length; i++) {
+      console.log(children[i]);
+    }
+  }
+  searchParent(className, document.body);
+  return nodeArr;
 };
 
 // Goal: return all elements containing class name
