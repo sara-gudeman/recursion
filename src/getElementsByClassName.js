@@ -12,7 +12,11 @@ var getElementsByClassName = function(className){
   var searchParent = function(className, parent) {
     var children = parent.childNodes;
     for (var i = 0; i < children.length; i++) {
-      console.log(children[i]);
+      // console.log(children[i]);
+      if (children[i].classList !== undefined) {
+        console.log(children[i].classList);
+        console.log(children[i].classList.contains(className));
+      }
     }
   }
   searchParent(className, document.body);
