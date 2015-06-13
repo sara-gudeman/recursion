@@ -14,8 +14,13 @@ var getElementsByClassName = function(className){
     for (var i = 0; i < children.length; i++) {
       // console.log(children[i]);
       if (children[i].classList !== undefined) {
-        console.log(children[i].classList);
-        console.log(children[i].classList.contains(className));
+        // console.log(children[i].classList);
+        // console.log(children[i].classList.contains(className));
+      }
+      // console.log(children[i].childNodes.length > 0);
+      if (children[i].childNodes.length > 0) {
+        console.log("recursed");
+        return searchParent(className, children[i]);
       }
     }
   }
