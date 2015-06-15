@@ -41,7 +41,7 @@ var getElementsByClassName = function(className){
     return hasClass;
   };
 
-  var body = document.body.childNodes;
-  var bodyArr = Array.prototype.slice.call(body);
+  var bodyArr = [];
+  bodyArr.push(document.body);
   return filterElements(className, bodyArr); 
 };
