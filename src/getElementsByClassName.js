@@ -27,6 +27,11 @@ var getElementsByClassName = function(className){
 
     // each parent node may contain multiple children
     // must store each child in array
+    var children = [];
+    hasChild.forEach(function(parent) {
+      var childArr = Array.prototype.slice.call(parent.childNodes);
+      children = children.concat(childArr);
+    });
   };
 
   var body = document.body.childNodes;
