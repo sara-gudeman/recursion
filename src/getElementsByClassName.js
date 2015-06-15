@@ -19,6 +19,14 @@ var getElementsByClassName = function(className){
     });
     // store new elements w/className
     hasClass = hasClass.concat(filteredClass);
+
+    // check current nodes for child nodes to search
+    var hasChild = elements.filter(function(element) {
+      return element.childNodes !== undefined && element.childNodes.length > 0;
+    });
+
+    // each parent node may contain multiple children
+    // must store each child in array
   };
 
   var body = document.body.childNodes;
