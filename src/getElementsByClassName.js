@@ -32,6 +32,13 @@ var getElementsByClassName = function(className){
       var childArr = Array.prototype.slice.call(parent.childNodes);
       children = children.concat(childArr);
     });
+
+    // if children exist, search child nodes--recursion
+    if (children.length > 0) {
+      return filterElements(className, children);
+    }
+    // else, return hasClass array
+    return hasClass;
   };
 
   var body = document.body.childNodes;
